@@ -8,7 +8,7 @@ namespace Mäng
 {
     public interface IEntity
     {
-        string Info();
+        string Info(int esemeteNumber);
         int pointsNumber();
     }
     class Item : IEntity
@@ -21,13 +21,20 @@ namespace Mäng
             this.Name = Name;
             this.pointNumber = pointNumber;
         }
-
         public int pointsNumber()
         {
             throw new NotImplementedException();
         }
+        int IEntity.pointsNumber()
+        {
+            return pointsNumber();
+        }
+        public string Info()
+        {
+            return Name;
+        }
 
-        string IEntity.Info()
+        public string Info(int esemeteNumber)
         {
             throw new NotImplementedException();
         }
