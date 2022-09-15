@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Mäng
 {
     //    2. Klass Ese realiseerib liidese Üksus.
-    public class Ese : IUksus
+    public class Ese : IEntity
     {
         //1. Klassis on privaatsed isendiväljad järgmise info jaoks: nimetus(String) ja punktide arv(int).
         private string nimetus;
