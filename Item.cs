@@ -6,37 +6,31 @@ using System.Threading.Tasks;
 
 namespace Mäng
 {
-    public interface IEntity
+    //    2. Klass Ese realiseerib liidese Üksus.
+    public class Ese : IUksus
     {
-        string Info(int esemeteNumber);
-        int pointsNumber();
-    }
-    class Item : IEntity
-    {
-        public string Name;
-        public int pointNumber;
+        //1. Klassis on privaatsed isendiväljad järgmise info jaoks: nimetus(String) ja punktide arv(int).
+        private string nimetus;
+        private int PunktideArv;
 
-        public Item(string Name, int pointNumber)
+        //2. Klassis peab olema kahe parameetriga konstruktor, mille abil saab määrata nimetuse ja punktide
+        public Ese(int punktideArv, string nimetus)
         {
-            this.Name = Name;
-            this.pointNumber = pointNumber;
-        }
-        public int pointsNumber()
-        {
-            throw new NotImplementedException();
-        }
-        int IEntity.pointsNumber()
-        {
-            return pointsNumber();
-        }
-        public string Info()
-        {
-            return Name;
+            this.nimetus = nimetus;
+            this.PunktideArv = punktideArv;
         }
 
-        public string Info(int esemeteNumber)
+        //3. Meetod punktideArv tagastab punktide arvu.
+        public int punktideArv()
         {
-            throw new NotImplementedException();
+            return PunktideArv;
         }
+
+        //4. Meetod info tagastab selle eseme nimetuse.
+        public string meetodInfo()
+        {
+            Console.WriteLine(nimetus);
+            return nimetus;
+        }
+
     }
-}
