@@ -6,44 +6,66 @@ using System.Threading.Tasks;
 
 namespace Mäng
 {
-    class Character : IEntity
+    //    3. Klass Tegelane realiseerib liidese Üksus.
+    class Character : IEntity, IComparable<Character>
     {
-        public string Name;
-        protected double m_value = 0.0;
-        public 
-        List<Item> item_list = new List<Item>();
-        List<Character> characters = new List<Character>();
-        public Character(string name)
+        //1. Klassis on privaatsed isendiväljad järgmise info jaoks: nimi(String) ja esemete nimekiri
+        private string nimi;
+        List<Ese> eseList;
+
+        //2. Klassis peab olema ühe parameetriga konstruktor, mille abil saab määrata nime.
+        public Character(string nimi)
         {
-            Name = name;
+            this.nimi = nimi;
+            eseList = new List<Ese>();
         }
-        public Item addItem(Item item)
-        { return item; }
-        public int pointsNumber()
+
+        //3. Äsjaloodud tegelasel ei ole ühtegi eset. Eseme lisamiseks peab olema meetod lisaEse, mis jätab argumendiks antud eseme meelde.
+        public int lisaEse(int arv)
         {
-            int arv_item = 0;
-            foreach (Item item in item_list)
+            return arv;
+        }
+
+        public void Equip(Ese ese) { eseList.Add(ese); }
+
+        //4. Meetod punktideArv tagastab punktide arvu.
+        public int punktideArv()
+        {
+            int summa = 0;
+            foreach (Ese ese in eseList)
             {
-                arv_item+= item.pointsNumber();
+                summa += ese.punktideArv();
             }
-            return arv_item;
+            return summa;
         }
-        public string Info(int esemeteNumber)
+
+        //5. Meetod info tagastab selle eseme nimetuse.
+        public string meetodInfo()
         {
-            string info=($"{Name}\nTEST{esemeteNumber}, point number{pointsNumber()}");
-            return info;
+            string teg_info = $"Tegelase nime - {nimi}, esemete arv - {eseList.Count}, punktide arv - {punktideArv()}";
+            return teg_info;
         }
-        public void issueItems()
+
+        //6. Klassis peab olema ka meetod väljastaEsemed, kus väljastatakse ekraanile tegelase esemed nii, et iga ese on eraldi real.
+        public void valjastaEsemed()
         {
-            foreach (Item item in item_list)
+            foreach (Ese ese in eseList)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(ese.meetodInfo());
             }
         }
-        public int CompareTo(Character other)
-        {   
-            if (other == null) return 1;
-            return m_value.CompareTo(other.m_value);
+
+        //7. Klass Character realiseerib liidese Comparable<Character>, kusjuures compareTo meetod realiseeritakse nii, et võrdlemine toimub esemete arvu alusel. (Näidis kood)
+
+        public int CompareTo(Character? muu)
+        {
+            if (muu==null)
+            {
+                return 1;
+            }
+            return this.eseList.Count - muu.eseKogus();
         }
+        private int eseKogus() { return this.eseList.Count; }
+        
     }
 }
