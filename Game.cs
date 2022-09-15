@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Mäng
 {
-    //    4. Klassis Mäng peab olema privaatne isendiväli fikseeritud pikkusega tegelaste nimekirja
+    //    4. Klassis Game peab olema privaatne isendiväli fikseeritud pikkusega tegelaste nimekirja
     //(Tegelane[]) jaoks.Klassis peab olema ühe parameetriga konstruktor, mille abil saab määrata tegelaste
     //nimekirja.
     internal class Game
     {
         private Tegelene[] tegelased;
 
-        public Mang(Tegelene[] tegelased)
+        public Game(Tegelene[] tegelased)
         {
             this.tegelased = tegelased;
         }
