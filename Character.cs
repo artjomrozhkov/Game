@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mäng
 {
-    //    3. Klass Tegelane realiseerib liidese Üksus.
+    //    3. Klass Character realiseerib liidese Üksus.
     class Character : IEntity, IComparable<Character>
     {
         //1. Klassis on privaatsed isendiväljad järgmise info jaoks: nimi(String) ja esemete nimekiri
