@@ -11,28 +11,28 @@ namespace Mäng
     {
         //1. Klassis on privaatsed isendiväljad järgmise info jaoks: nimi(String) ja esemete nimekiri
         private string nimi;
-        List<Ese> eseList;
+        List<Item> eseList;
 
         //2. Klassis peab olema ühe parameetriga konstruktor, mille abil saab määrata nime.
         public Character(string nimi)
         {
             this.nimi = nimi;
-            eseList = new List<Ese>();
+            eseList = new List<Item>();
         }
 
         //3. Äsjaloodud tegelasel ei ole ühtegi eset. Eseme lisamiseks peab olema meetod lisaEse, mis jätab argumendiks antud eseme meelde.
-        public int lisaEse(int arv)
+        public int lisaitem(int arv)
         {
             return arv;
         }
 
-        public void Equip(Ese ese) { eseList.Add(ese); }
+        public void Equip(Item Item) { eseList.Add(ese); }
 
         //4. Meetod punktideArv tagastab punktide arvu.
         public int punktideArv()
         {
             int summa = 0;
-            foreach (Ese ese in eseList)
+            foreach (Item Item in eseList)
             {
                 summa += ese.punktideArv();
             }
@@ -49,7 +49,7 @@ namespace Mäng
         //6. Klassis peab olema ka meetod väljastaEsemed, kus väljastatakse ekraanile tegelase esemed nii, et iga ese on eraldi real.
         public void valjastaEsemed()
         {
-            foreach (Ese ese in eseList)
+            foreach (Item item in eseList)
             {
                 Console.WriteLine(ese.meetodInfo());
             }
