@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 
 namespace Mäng
 {
-    //    4. Klassis Game peab olema privaatne isendiväli fikseeritud pikkusega tegelaste nimekirja
-    //(Tegelane[]) jaoks.Klassis peab olema ühe parameetriga konstruktor, mille abil saab määrata tegelaste
-    //nimekirja.
     internal class Game
     {
         private Tegelene[] tegelased;
@@ -17,9 +14,6 @@ namespace Mäng
         {
             this.tegelased = tegelased;
         }
-        //1. Klassis on Tegelane-tüüpi parameetriteta meetod suurimaEsemeteArvuga, mis tagastab
-        //suurima esemete arvuga tegelase.Meetodis tegelased sorteeritakse vastavalt meetodis compareTo
-        //kirjeldatud järjekorrale ja sorteeritud massiivist võetakse suurima esemete arvuga tegelast.
         public List<Tegelene> SuurimaEsemeteArvuga()
         {
             List<Tegelene> voitjad = new List<Tegelene>();
@@ -40,7 +34,6 @@ namespace Mäng
             voitjad.Add(sorted);
             return voitjad;
         }
-        //2. Klassis on Tegelane-tüüpi parameetriteta meetod suurimaPunktideArvuga, mis tagastab suurima punktide arvuga tegelase.
         public Tegelene suurimaPunktideArvuga()
         {
             int parim = 0;
