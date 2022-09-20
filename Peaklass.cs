@@ -47,7 +47,7 @@ namespace Mäng
 
         static string getName()
         {
-            string[] nimed = { "GigaChad", "Abobus", "Henry", "Nikita", "Genadi" };
+            string[] nimed = { "Bebrus", "Abobus", "Artjom", "Denis", "Timofey" };
             return nimed[rnd.Next(nimed.Length)];
         }
 
