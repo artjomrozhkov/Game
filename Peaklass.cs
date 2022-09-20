@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 
 namespace Mäng
 {
-    //  5. Peaklass peab olema nimega Peaklass.
     internal static class Peaklass
     {
         public static Random rnd = new Random();
-        //1. Rakendatakse vastavat staatilist meetodit, et lugeda failist esemed.txt esemete andmed.
         public static List<Item> LoeEsemed()
         {
             List<Item> list = new List<Item>();
@@ -49,7 +47,6 @@ namespace Mäng
 
         static string getName()
         {
-            //2.Luuakse vähemalt 5 tegelast(nimed mõelge ise välja).
             string[] nimed = { "GigaChad", "Abobus", "Henry", "Nikita", "Genadi" };
             return nimed[rnd.Next(nimed.Length)];
         }
@@ -71,8 +68,6 @@ namespace Mäng
         {
             List<Ese> itemList = LoeEsemed();
             if (itemList.Count <= 0) throw new ArgumentOutOfRangeException();
-            //4. Iga tegelase jaoks genereeritakse juhuslik arv n vahemikust[2, 10], mis näitab selle tegelase esemete
-            //arvu.Iga tegelase jaoks valitakse juhuslikult n eset.
             foreach (Character plr in plrs)
             {
                 Shuffle(itemList);
@@ -87,10 +82,8 @@ namespace Mäng
 
         static public void PlayGame(int plrCount)
         {
-            //6. Luuakse mäng kasutades tegelaste massiivi.
             Character[] plrs = populatePlayers(plrCount);
             Game Game = new Game(plrs);
-            //5. Tegelaste info ja esemed väljastatakse ekraanile (kasutades vastavaid meetodeid).
             foreach (Character winner in Game.SuurimaEsemeteArvuga())
             {
                 Console.WriteLine(winner.meetodInfo());
@@ -99,7 +92,6 @@ namespace Mäng
             Console.WriteLine(win.meetodInfo());
             Console.WriteLine("Tegelasel oli need esed:");
             Console.WriteLine("-------------------------------");
-            //8.Leitakse ja väljastatakse ekraanile suurima punktide arvuga tegelase info(kasutades vastavaid meetodeid).
             win.valjastaEsemed();
             Console.WriteLine("-------------------------------");
 
